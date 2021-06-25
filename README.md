@@ -41,10 +41,12 @@ Potential issues
 ----------------
 
 * Ironic starts all the master vm at the same time, and sometimes, your hosts could be overloaded and a node pxe boot could timeout :
-** watch out and restart the vm
+
+  * * watch out and restart the vm
 
 * When a node is starting (after the two reboot), if your hosts is overloaded, a node can have timeout during dhcp/garp exchanges and could not see the bootstrap node using the API IP and could start the API IP on the master node even when it is not ready yet and this could break the cluster setup : 
-** if needed, on master node, crictl exec on keepalived container and add bootstrap peer ip on config and kill -HUP on keepalived pids
+
+  * * if needed, on master node, crictl exec on keepalived container and add bootstrap peer ip on config and kill -HUP on keepalived pids
 
 
 
