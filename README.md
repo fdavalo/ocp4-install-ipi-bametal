@@ -4,11 +4,11 @@ Install Openshift 4 using IPI Bare Metal installer on your PC
 Pre-requisites
 --------------
 
-A VM with RHEL where you can run those scripts and create your cluster and vms.
-You can also use vms from differents hosts (vbmc allows adding remote vms from remote hosts), but you will have to extand your network configs.
+  * A VM with RHEL where you can run those scripts and create your cluster and vms.
+  * You can also use vms from differents hosts (vbmc allows adding remote vms from remote hosts), but you will have to extand your network configs.
 
-You need to install libvirtd, .... and ipmitools (rpms).
-You also need to install Virtual BMC (pip3) : https://github.com/openstack/virtualbmc
+  * You need to install libvirtd, .... and ipmitools (rpms).
+  * You also need to install Virtual BMC (pip3) : https://github.com/openstack/virtualbmc
 
 Configuration
 -------------
