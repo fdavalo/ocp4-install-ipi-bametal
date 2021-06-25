@@ -4,11 +4,11 @@ Install Openshift 4 using IPI Bare Metal installer on your PC
 Pre-requisites
 --------------
 
-  * A VM with RHEL where you can run those scripts and create your cluster and vms.
-  * You can also use vms from differents hosts (vbmc allows adding remote vms from remote hosts), but you will have to extand your network configs.
+* A VM with RHEL where you can run those scripts and create your cluster and vms.
+* You can also use vms from differents hosts (vbmc allows adding remote vms from remote hosts), but you will have to extand your network configs.
 
-  * You need to install libvirtd, .... and ipmitools (rpms).
-  * You also need to install Virtual BMC (pip3) : https://github.com/openstack/virtualbmc
+* You need to install libvirtd, .... and ipmitools (rpms).
+* You also need to install Virtual BMC (pip3) : https://github.com/openstack/virtualbmc
 
 Configuration
 -------------
@@ -18,10 +18,10 @@ Edit install-env.sh to adapt some parameters (directories, where qemu images are
 Installation
 ------------
 
-  * Source install-env.sh
-  * Run install-pre.sh (creates libvirt networks).
-  * Run install-vms.sh (creates master vms and add them to vbmc).
-  * Run install-cluster.sh (generates intall-config.yaml for baremetal installer and launch the install).
+* Source install-env.sh
+* Run install-pre.sh (creates libvirt networks).
+* Run install-vms.sh (creates master vms and add them to vbmc).
+* Run install-cluster.sh (generates intall-config.yaml for baremetal installer and launch the install).
 
 Steps
 -----
@@ -40,11 +40,11 @@ Steps
 Potential issues
 ----------------
 
-Ironic starts all the master vm at the same time, and sometimes, your hosts could be overloaded and a node pxe boot could timeout :
-  - watch out and restart the vm
+* Ironic starts all the master vm at the same time, and sometimes, your hosts could be overloaded and a node pxe boot could timeout :
+  ** watch out and restart the vm
 
-When a node is starting (after the two reboot), if your hosts is overloaded, a node can have timeout during dhcp/garp exchanges and could not see the bootstrap node using the API IP and could start the API IP on the master node even when it is not ready yet and this could break the cluster setup : 
-  - if needed, on master node, crictl exec on keepalived container and add bootstrap peer ip on config and kill -HUP on keepalived pids
+* When a node is starting (after the two reboot), if your hosts is overloaded, a node can have timeout during dhcp/garp exchanges and could not see the bootstrap node using the API IP and could start the API IP on the master node even when it is not ready yet and this could break the cluster setup : 
+  ** if needed, on master node, crictl exec on keepalived container and add bootstrap peer ip on config and kill -HUP on keepalived pids
 
 
 
