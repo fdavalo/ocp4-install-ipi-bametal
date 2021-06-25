@@ -18,24 +18,24 @@ Edit install-env.sh to adapt some parameters (directories, where qemu images are
 Installation
 ------------
 
-Source install-env.sh
-Run install-pre.sh (creates libvirt networks).
-Run install-vms.sh (creates master vms and add them to vbmc).
-Run install-cluster.sh (generates intall-config.yaml for baremetal installer and launch the install).
+  * Source install-env.sh
+  * Run install-pre.sh (creates libvirt networks).
+  * Run install-vms.sh (creates master vms and add them to vbmc).
+  * Run install-cluster.sh (generates intall-config.yaml for baremetal installer and launch the install).
 
 Steps
 -----
 
-The baremetal installer is going to create a bootstrap VM.
-The bootstrap VM will ignite the cluster with an etcd instance and kubernetes api server.
-The bootstrap VM will also start ironic to manage the setup of master vms.
-Ironic will use ipmitools to power On the master VM.
-The master VM will boot on ipxe url handled by ironic/dnsmasq on bootstrap VM.
-The master VM will download CoreOS images and reboot when done.
-The master VM will first boot on hd and start coreOS ignition (downloading operators and settings), then reboot when done.
-The master VM will boot normally on hd and start kubelet + operators (network, api, etcd, ...).
-The bootstrap VM will keep the cluster API until one master node will re-claim the IP when its API operator will be ready.
-When all master nodes are ready, bootstrap VM will be destroyed by the baremetal installer.
+* The baremetal installer is going to create a bootstrap VM.
+* The bootstrap VM will ignite the cluster with an etcd instance and kubernetes api server.
+* The bootstrap VM will also start ironic to manage the setup of master vms.
+* Ironic will use ipmitools to power On the master VM.
+* The master VM will boot on ipxe url handled by ironic/dnsmasq on bootstrap VM.
+* The master VM will download CoreOS images and reboot when done.
+* The master VM will first boot on hd and start coreOS ignition (downloading operators and settings), then reboot when done.
+* The master VM will boot normally on hd and start kubelet + operators (network, api, etcd, ...).
+* The bootstrap VM will keep the cluster API until one master node will re-claim the IP when its API operator will be ready.
+* When all master nodes are ready, bootstrap VM will be destroyed by the baremetal installer.
 
 Potential issues
 ----------------
